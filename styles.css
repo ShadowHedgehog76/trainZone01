@@ -17,19 +17,19 @@
     --color-error: #ef4444;
     --color-info: #3b82f6;
     
-    /* Colors - Neutrals */
+    /* Colors - Neutrals - DARK MODE FORCÉ */
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-gray-50: #1a1b26;
-    --color-gray-100: #24283b;
-    --color-gray-200: #414868;
-    --color-gray-300: #565f89;
-    --color-gray-400: #7aa2f7;
-    --color-gray-500: #9aa5ce;
-    --color-gray-600: #c0caf5;
-    --color-gray-700: #d5daf0;
-    --color-gray-800: #e5e9f0;
-    --color-gray-900: #f0f2f7;
+    --color-gray-50: #0d0d14;
+    --color-gray-100: #161622;
+    --color-gray-200: #1f1f2e;
+    --color-gray-300: #2a2a3e;
+    --color-gray-400: #565f89;
+    --color-gray-500: #7aa2f7;
+    --color-gray-600: #9aa5ce;
+    --color-gray-700: #c0caf5;
+    --color-gray-800: #d5daf0;
+    --color-gray-900: #e5e9f0;
     
     /* Colors - IDE */
     --color-ide-bg: #1a1b26;
@@ -104,8 +104,8 @@ body {
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.6;
-    color: var(--color-gray-100);
-    background: #0f0f1a;
+    color: #e5e9f0;
+    background: #0a0a0f;
 }
 
 /* UTILITIES */
@@ -137,7 +137,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(26, 27, 38, 0.9);
+    background: rgba(13, 13, 20, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-gray-200);
 }
@@ -414,7 +414,7 @@ body {
 }
 
 .sidebar-sticky {
-    background: var(--color-gray-50);
+    background: var(--color-gray-100);
     border-radius: var(--radius-2xl);
     padding: var(--space-6);
     box-shadow: var(--shadow-md);
@@ -553,7 +553,7 @@ body {
 }
 
 .action-btn:hover {
-    background: var(--color-gray-50);
+    background: var(--color-gray-200);
     border-color: var(--color-primary);
     color: var(--color-primary);
     transform: translateX(4px);
@@ -589,7 +589,7 @@ body {
 
 /* EXERCISE AREA */
 .exercise-area {
-    background: var(--color-gray-50);
+    background: var(--color-gray-100);
     border-radius: var(--radius-2xl);
     padding: var(--space-8);
     box-shadow: var(--shadow-md);
@@ -634,7 +634,7 @@ body {
 }
 
 .toggle-btn.active {
-    background: var(--color-gray-50);
+    background: var(--color-gray-200);
     color: var(--color-primary);
     box-shadow: var(--shadow-xs);
 }
@@ -666,8 +666,8 @@ body {
 
 .exercise-card {
     position: relative;
-    background: var(--color-gray-100);
-    border: 2px solid var(--color-gray-200);
+    background: var(--color-gray-200);
+    border: 2px solid var(--color-gray-300);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
     cursor: pointer;
@@ -772,12 +772,12 @@ body {
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-5);
-    background: var(--color-gray-100);
-    border: 2px solid var(--color-gray-200);
+    background: var(--color-gray-200);
+    border: 2px solid var(--color-gray-300);
     border-radius: var(--radius-lg);
     font-weight: 600;
     font-size: 0.9375rem;
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     cursor: pointer;
     transition: all var(--transition-base);
 }
@@ -800,7 +800,7 @@ body {
 }
 
 #exerciseDetail {
-    background: var(--color-gray-50);
+    background: var(--color-gray-100);
     border-radius: var(--radius-2xl);
     padding: var(--space-10);
     box-shadow: var(--shadow-md);
@@ -1103,13 +1103,13 @@ body {
 }
 
 .toast {
-    background: var(--color-gray-50);
+    background: var(--color-gray-100);
     border-radius: var(--radius-xl);
     padding: var(--space-4) var(--space-5);
     box-shadow: var(--shadow-2xl);
     border-left: 4px solid;
     border: 1px solid var(--color-gray-200);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     animation: slideInRight 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
