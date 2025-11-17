@@ -1,31 +1,76 @@
-# Exercise Database - 01-edu
+# ⚡ TrainZone - Professional Exercise Platform
 
-Site statique présentant 792 exercices de programmation complets issus du repository 01-edu/public.
+> Une plateforme professionnelle et moderne présentant 792 exercices de programmation complets issus du repository 01-edu/public.
 
-## 🌐 Démo
+[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://shadowhedgehog76.github.io/trainZone01/)
+[![Exercises](https://img.shields.io/badge/exercises-792-purple)](https://github.com/01-edu/public)
+[![Languages](https://img.shields.io/badge/languages-9-blue)](#)
 
-[Voir le site en ligne](https://VOTRE-USERNAME.github.io/VOTRE-REPO/)
+## 🌟 Aperçu
+
+TrainZone est une interface web ultra-moderne et performante pour explorer et pratiquer les exercices de programmation de 01-edu. Avec un design inspiré des meilleures pratiques UX/UI, une interface fluide et des animations soignées, c'est l'outil idéal pour améliorer vos compétences en programmation.
 
 ## ✨ Fonctionnalités
 
-- 🔍 Recherche d'exercices par nom ou ID
-- 🏷️ Filtrage par langages de programmation (multi-sélection)
-- 🎲 Sélection aléatoire d'exercices
-- 💻 Éditeur de code intégré (interface uniquement - exécution nécessite backend)
-- 📱 Design responsive
-- ⚡ Site 100% statique (GitHub Pages compatible)
+### 🎯 Interface Moderne
+- **Design Professionnel** : Interface inspirée des meilleures plateformes tech
+- **Animations Fluides** : Transitions et micro-interactions soignées
+- **Mode Sombre** : Éditeur de code avec thème dark optimisé
+- **Responsive** : S'adapte parfaitement à tous les écrans
 
-## 📋 Langages supportés
+### 🔍 Recherche & Filtrage
+- Recherche en temps réel par nom ou ID
+- Filtres par langages (multi-sélection avec pastilles interactives)
+- Sélection aléatoire d'exercices avec filtrage exact
+- Compteur de résultats dynamique
 
-- Bash
-- C
-- Go
-- HTML/CSS
-- Java
-- JavaScript
-- Python
-- Rust
-- SQL
+### 💻 Éditeur de Code Intégré
+- Interface type IDE professionnel
+- Support de la coloration syntaxique
+- Chargement de fichiers
+- Zone de sortie style console
+- Design inspiré de VS Code
+
+### 📊 Statistiques
+- 792 exercices complets
+- 9 langages de programmation
+- Métadonnées enrichies
+- Contenu Markdown complet
+
+## 🚀 Technologies
+
+- **Frontend** : HTML5, CSS3 (CSS Variables, Flexbox, Grid)
+- **JavaScript** : Vanilla JS (ES6+, Async/Await, Fetch API)
+- **Design** : Gradient Design System, Inter & JetBrains Mono fonts
+- **Architecture** : 100% statique, optimisé pour GitHub Pages
+- **Performance** : Lazy loading, animations GPU-accelerated
+
+## 🎨 Design System
+
+### Couleurs Principales
+- **Primary Purple** : `#7c3aed` - Accent principal
+- **Gradient Hero** : `#1a1a2e → #16213e → #0f3460`
+- **Success Green** : `#10b981`
+- **Error Red** : `#ef4444`
+
+### Typographie
+- **Titres** : Inter (800-900 weight)
+- **Corps** : Inter (400-600 weight)
+- **Code** : JetBrains Mono
+
+## 📋 Langages Supportés
+
+| Langage | Nombre d'exercices |
+|---------|-------------------|
+| JavaScript | 245+ |
+| Python | 70+ |
+| Go | 70+ |
+| Bash | Multiples |
+| C | Multiples |
+| Rust | Multiples |
+| Java | Multiples |
+| HTML/CSS | Multiples |
+| SQL | Multiples |
 
 ## 🚀 Déploiement sur GitHub Pages
 
