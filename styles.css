@@ -20,16 +20,16 @@
     /* Colors - Neutrals */
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-gray-50: #f9fafb;
-    --color-gray-100: #f3f4f6;
-    --color-gray-200: #e5e7eb;
-    --color-gray-300: #d1d5db;
-    --color-gray-400: #9ca3af;
-    --color-gray-500: #6b7280;
-    --color-gray-600: #4b5563;
-    --color-gray-700: #374151;
-    --color-gray-800: #1f2937;
-    --color-gray-900: #111827;
+    --color-gray-50: #1a1b26;
+    --color-gray-100: #24283b;
+    --color-gray-200: #414868;
+    --color-gray-300: #565f89;
+    --color-gray-400: #7aa2f7;
+    --color-gray-500: #9aa5ce;
+    --color-gray-600: #c0caf5;
+    --color-gray-700: #d5daf0;
+    --color-gray-800: #e5e9f0;
+    --color-gray-900: #f0f2f7;
     
     /* Colors - IDE */
     --color-ide-bg: #1a1b26;
@@ -104,8 +104,8 @@ body {
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.6;
-    color: var(--color-gray-900);
-    background: var(--color-gray-50);
+    color: var(--color-gray-100);
+    background: #0f0f1a;
 }
 
 /* UTILITIES */
@@ -137,7 +137,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(26, 27, 38, 0.9);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-gray-200);
 }
@@ -374,8 +374,8 @@ body {
 }
 
 .btn-primary {
-    background: white;
-    color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
     box-shadow: var(--shadow-lg);
 }
 
@@ -414,10 +414,11 @@ body {
 }
 
 .sidebar-sticky {
-    background: white;
+    background: var(--color-gray-50);
     border-radius: var(--radius-2xl);
     padding: var(--space-6);
     box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-gray-200);
 }
 
 .filter-group {
@@ -482,7 +483,7 @@ body {
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--transition-base);
-    background: white;
+    background: transparent;
 }
 
 .language-filter:hover {
@@ -509,14 +510,14 @@ body {
 }
 
 .language-filter.active .filter-checkbox {
-    background: white;
-    border-color: white;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .filter-checkbox svg {
     width: 12px;
     height: 12px;
-    stroke: var(--color-primary);
+    stroke: white;
     stroke-width: 3;
     opacity: 0;
     transition: opacity var(--transition-fast);
@@ -552,7 +553,7 @@ body {
 }
 
 .action-btn:hover {
-    background: white;
+    background: var(--color-gray-50);
     border-color: var(--color-primary);
     color: var(--color-primary);
     transform: translateX(4px);
@@ -588,10 +589,11 @@ body {
 
 /* EXERCISE AREA */
 .exercise-area {
-    background: white;
+    background: var(--color-gray-50);
     border-radius: var(--radius-2xl);
     padding: var(--space-8);
     box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-gray-200);
 }
 
 .exercise-header {
@@ -632,7 +634,7 @@ body {
 }
 
 .toggle-btn.active {
-    background: white;
+    background: var(--color-gray-50);
     color: var(--color-primary);
     box-shadow: var(--shadow-xs);
 }
@@ -664,7 +666,7 @@ body {
 
 .exercise-card {
     position: relative;
-    background: white;
+    background: var(--color-gray-100);
     border: 2px solid var(--color-gray-200);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
@@ -756,7 +758,7 @@ body {
 
 /* DETAIL PAGE */
 .detail-header {
-    background: white;
+    background: rgba(26, 27, 38, 0.85);
     border-bottom: 1px solid var(--color-gray-200);
     padding: var(--space-4) 0;
     position: sticky;
@@ -770,12 +772,12 @@ body {
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-5);
-    background: white;
+    background: var(--color-gray-100);
     border: 2px solid var(--color-gray-200);
     border-radius: var(--radius-lg);
     font-weight: 600;
     font-size: 0.9375rem;
-    color: var(--color-gray-700);
+    color: var(--color-gray-600);
     cursor: pointer;
     transition: all var(--transition-base);
 }
@@ -798,11 +800,12 @@ body {
 }
 
 #exerciseDetail {
-    background: white;
+    background: var(--color-gray-50);
     border-radius: var(--radius-2xl);
     padding: var(--space-10);
     box-shadow: var(--shadow-md);
     line-height: 1.8;
+    border: 1px solid var(--color-gray-200);
 }
 
 #exerciseDetail h1 {
@@ -1100,11 +1103,13 @@ body {
 }
 
 .toast {
-    background: white;
+    background: var(--color-gray-50);
     border-radius: var(--radius-xl);
     padding: var(--space-4) var(--space-5);
     box-shadow: var(--shadow-2xl);
     border-left: 4px solid;
+    border: 1px solid var(--color-gray-200);
+    color: var(--color-gray-600);
     animation: slideInRight 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 

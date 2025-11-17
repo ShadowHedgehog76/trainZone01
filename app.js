@@ -309,7 +309,8 @@ function setupEventListeners() {
             btn.classList.add('active');
             
             const view = btn.dataset.view;
-            elements.exerciseGrid.className = `exercise-grid ${view}-view`;
+            elements.exerciseGrid.classList.remove('grid-view', 'list-view');
+            elements.exerciseGrid.classList.add(view + '-view');
         });
     });
     
