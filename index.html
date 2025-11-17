@@ -3,202 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plateforme professionnelle d'exercices de programmation - 792 exercices complets issus de 01-edu">
-    <meta name="keywords" content="programmation, exercices, coding, javascript, python, go, rust">
-    <meta name="author" content="01-edu Community">
-    <title>TrainZone - Professional Exercise Platform</title>
+    <meta name="description" content="TrainZone - Plateforme d'exercices de programmation 01-edu. 792 exercices, 9 langages, interface moderne.">
+    <meta name="keywords" content="programmation, exercices, coding, 01-edu, javascript, python, go, rust">
+    <title>TrainZone | Maîtrisez la Programmation</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Page de liste -->
-    <div id="listPage" class="page">
-        <!-- Hero Header -->
-        <header class="hero-header">
-            <nav class="nav-bar">
-                <div class="nav-container">
-                    <div class="logo">
-                        <span class="logo-icon">⚡</span>
-                        <span class="logo-text">TrainZone</span>
-                        <span class="logo-badge">PRO</span>
-                    </div>
-                    <div class="nav-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">792</span>
-                            <span class="stat-label">Exercices</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">9</span>
-                            <span class="stat-label">Langages</span>
+    
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page active">
+        
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="brand">
+                        <div class="brand-icon">⚡</div>
+                        <div class="brand-text">
+                            <span class="brand-name">TrainZone</span>
+                            <span class="brand-tagline">by 01-edu</span>
                         </div>
                     </div>
-                </div>
-            </nav>
-            
-            <div class="hero-content">
-                <div class="hero-badge">🎯 Plateforme Professionnelle</div>
-                <h1 class="hero-title">
-                    Maîtrisez la Programmation
-                    <span class="gradient-text">avec 01-edu</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Accédez à une collection complète de 792 exercices de programmation,
-                    soigneusement sélectionnés pour développer vos compétences.
-                </p>
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">✨</span>
-                        <span>Exercices Complets</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🚀</span>
-                        <span>Interface Moderne</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">💻</span>
-                        <span>Éditeur Intégré</span>
+                    
+                    <div class="nav-right">
+                        <div class="stats-mini">
+                            <div class="stat-mini">
+                                <span class="stat-value">792</span>
+                                <span class="stat-label">Exercices</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span class="stat-value">9</span>
+                                <span class="stat-label">Langages</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </header>
-
-        <div class="main-container">
-            <!-- Sidebar Filters -->
-            <aside class="sidebar">
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">
-                        <span class="title-icon">🔍</span>
-                        Recherche
-                    </h3>
-                    <div class="search-wrapper">
-                        <input type="text" id="searchInput" placeholder="Rechercher un exercice..." class="search-input">
-                        <span class="search-icon">⌕</span>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🎯</span>
+                        <span>Plateforme Professionnelle</span>
                     </div>
-                </div>
-
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">
-                        <span class="title-icon">🏷️</span>
-                        Langages de Programmation
-                    </h3>
-                    <div id="languagePills" class="language-pills"></div>
-                </div>
-
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">
-                        <span class="title-icon">⚡</span>
-                        Actions Rapides
-                    </h3>
-                    <button id="randomBtn" class="action-btn primary">
-                        <span class="btn-icon">🎲</span>
-                        <span class="btn-text">Exercice Aléatoire</span>
-                    </button>
-                    <button id="resetBtn" class="action-btn secondary">
-                        <span class="btn-icon">↺</span>
-                        <span class="btn-text">Réinitialiser</span>
-                    </button>
-                </div>
-
-                <div class="sidebar-section stats-section">
-                    <div id="resultsCount" class="results-badge"></div>
-                </div>
-            </aside>
-
-            <!-- Exercise Grid -->
-            <main class="content-area">
-                <div class="content-header">
-                    <h2 class="content-title">Tous les Exercices</h2>
-                    <div class="view-controls">
-                        <button class="view-btn active" data-view="grid">
-                            <span>⊞</span>
+                    
+                    <h1 class="hero-title">
+                        Développez vos compétences en<br>
+                        <span class="gradient-text">Programmation</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Accédez à une collection complète de 792 exercices de programmation
+                        issus du repository 01-edu. Interface moderne, recherche avancée,
+                        éditeur de code intégré.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" onclick="scrollToExercises()">
+                            <span>Explorer les Exercices</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </button>
-                        <button class="view-btn" data-view="list">
-                            <span>☰</span>
+                        <button class="btn btn-outline btn-large" onclick="showRandomExercise()">
+                            <span>🎲</span>
+                            <span>Surprise Me</span>
                         </button>
                     </div>
-                </div>
-                <div id="exerciseGrid" class="exercise-grid"></div>
-            </main>
-        </div>
-    </div>
-
-    <!-- Page de détail avec IDE -->
-    <div id="detailPage" class="page detail-page" style="display: none;">
-        <!-- Fixed IDE Panel -->
-        <div class="ide-panel">
-            <div class="ide-header">
-                <div class="ide-title-section">
-                    <span class="ide-icon">💻</span>
-                    <span class="ide-title">Code Editor</span>
-                    <span class="ide-status">Ready</span>
-                </div>
-                <select id="languageSelector" class="language-selector"></select>
-            </div>
-            
-            <div class="editor-section">
-                <div class="editor-toolbar">
-                    <span class="toolbar-label">editor.code</span>
-                    <div class="toolbar-actions">
-                        <button class="toolbar-btn" title="Format">⌘</button>
-                        <button class="toolbar-btn" title="Settings">⚙</button>
+                    
+                    <div class="hero-features">
+                        <div class="feature">
+                            <div class="feature-icon">⚡</div>
+                            <span>Recherche Rapide</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎨</div>
+                            <span>Interface Moderne</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💻</div>
+                            <span>Éditeur Intégré</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📱</div>
+                            <span>100% Responsive</span>
+                        </div>
                     </div>
                 </div>
-                <textarea id="codeEditor" class="code-editor" placeholder="// Write your code here...&#10;// Press Run to execute&#10;&#10;"></textarea>
             </div>
-            
-            <div class="ide-controls">
-                <button id="runBtn" class="ide-btn run-btn">
-                    <span class="btn-icon">▶</span>
-                    <span>Run Code</span>
-                </button>
-                <button id="clearBtn" class="ide-btn clear-btn">
-                    <span class="btn-icon">✕</span>
-                    <span>Clear</span>
-                </button>
-                <label for="fileInput" class="ide-btn upload-btn">
-                    <span class="btn-icon">📁</span>
-                    <span>Load File</span>
-                </label>
-                <input type="file" id="fileInput" style="display: none;">
-            </div>
-            
-            <div class="output-section">
-                <div class="output-header">
-                    <span class="output-title">Output</span>
-                    <span class="output-badge">Console</span>
+        </section>
+        
+        <!-- Main Content -->
+        <section class="main-section" id="exercisesSection">
+            <div class="container">
+                <div class="content-wrapper">
+                    
+                    <!-- Sidebar Filters -->
+                    <aside class="sidebar">
+                        <div class="sidebar-sticky">
+                            
+                            <!-- Search -->
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M13 13l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    <span>Rechercher</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="searchInput" 
+                                    class="search-input"
+                                    placeholder="Nom ou ID de l'exercice..."
+                                >
+                            </div>
+                            
+                            <!-- Languages Filter -->
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    <span>Langages</span>
+                                    <span class="filter-count" id="selectedCount">0</span>
+                                </label>
+                                <div id="languageFilters" class="language-filters"></div>
+                            </div>
+                            
+                            <!-- Quick Actions -->
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <span>⚡</span>
+                                    <span>Actions</span>
+                                </label>
+                                <div class="quick-actions">
+                                    <button class="action-btn" id="randomBtn">
+                                        <span>🎲</span>
+                                        <span>Aléatoire</span>
+                                    </button>
+                                    <button class="action-btn" id="resetBtn">
+                                        <span>↺</span>
+                                        <span>Réinitialiser</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Results -->
+                            <div class="results-info" id="resultsInfo">
+                                <div class="results-count">
+                                    <span id="resultsNumber">0</span>
+                                    <span>résultats</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </aside>
+                    
+                    <!-- Exercise Grid -->
+                    <main class="exercise-area">
+                        <div class="exercise-header">
+                            <h2 class="section-title">Tous les Exercices</h2>
+                            <div class="view-toggle">
+                                <button class="toggle-btn active" data-view="grid">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                        <rect x="2" y="2" width="7" height="7" rx="1"/>
+                                        <rect x="11" y="2" width="7" height="7" rx="1"/>
+                                        <rect x="2" y="11" width="7" height="7" rx="1"/>
+                                        <rect x="11" y="11" width="7" height="7" rx="1"/>
+                                    </svg>
+                                </button>
+                                <button class="toggle-btn" data-view="list">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                        <rect x="2" y="4" width="16" height="2" rx="1"/>
+                                        <rect x="2" y="9" width="16" height="2" rx="1"/>
+                                        <rect x="2" y="14" width="16" height="2" rx="1"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="exerciseGrid" class="exercise-grid grid-view"></div>
+                        
+                        <!-- Empty State -->
+                        <div id="emptyState" class="empty-state" style="display: none;">
+                            <div class="empty-icon">🔍</div>
+                            <h3>Aucun exercice trouvé</h3>
+                            <p>Essayez de modifier vos filtres ou votre recherche</p>
+                            <button class="btn btn-outline" onclick="resetFilters()">
+                                Réinitialiser les filtres
+                            </button>
+                        </div>
+                    </main>
+                    
                 </div>
-                <div id="outputContainer" class="output-container">
-                    <div class="output-line welcome">▸ Ready to execute...</div>
-                </div>
             </div>
-        </div>
-
-        <!-- Exercise Content -->
-        <div class="exercise-detail-content">
-            <div class="detail-header">
-                <button id="backBtn" class="back-btn">
-                    <span class="back-icon">←</span>
-                    <span>Back to exercises</span>
-                </button>
-                <div class="detail-actions">
-                    <button class="icon-btn" title="Bookmark">
-                        <span>🔖</span>
-                    </button>
-                    <button class="icon-btn" title="Share">
-                        <span>⤴</span>
-                    </button>
-                </div>
-            </div>
-            
-            <div id="exerciseDetail" class="exercise-detail-body"></div>
-        </div>
+        </section>
+        
     </div>
-
-    <!-- Notification container -->
-    <div id="notificationContainer"></div>
-
+    
+    <!-- DETAIL PAGE -->
+    <div id="detailPage" class="page">
+        
+        <!-- Detail Header -->
+        <div class="detail-header">
+            <div class="container">
+                <button class="back-button" id="backBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12 16l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Retour</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Detail Content -->
+        <div class="detail-layout">
+            
+            <!-- Exercise Content -->
+            <div class="detail-content">
+                <div class="container-small">
+                    <div id="exerciseDetail"></div>
+                </div>
+            </div>
+            
+            <!-- IDE Panel -->
+            <div class="ide-panel" id="idePanel">
+                <div class="ide-header">
+                    <div class="ide-title">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M6 4l-4 6 4 6M14 4l4 6-4 6M12 2l-4 16"/>
+                        </svg>
+                        <span>Code Editor</span>
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span>Ready</span>
+                        </div>
+                    </div>
+                    <select id="languageSelector" class="language-select"></select>
+                </div>
+                
+                <div class="editor-wrapper">
+                    <div class="editor-tabs">
+                        <div class="editor-tab active">
+                            <span>solution.code</span>
+                            <button class="tab-close">×</button>
+                        </div>
+                    </div>
+                    <textarea 
+                        id="codeEditor" 
+                        class="code-editor"
+                        placeholder="// Start coding here...&#10;// Your solution goes here&#10;&#10;"
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+                
+                <div class="editor-controls">
+                    <button class="editor-btn run-btn" id="runBtn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M4 2l10 6-10 6V2z"/>
+                        </svg>
+                        <span>Run</span>
+                    </button>
+                    <button class="editor-btn" id="clearBtn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M3 3l10 10M3 13L13 3"/>
+                        </svg>
+                        <span>Clear</span>
+                    </button>
+                    <label for="fileInput" class="editor-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M9 1H4v14h8V4.5L9 1zM8.5 4V1.5L11.5 4H8.5z"/>
+                        </svg>
+                        <span>Load</span>
+                    </label>
+                    <input type="file" id="fileInput" style="display: none;">
+                </div>
+                
+                <div class="output-panel">
+                    <div class="output-header">
+                        <div class="output-title">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2 2h12v2H2zM2 6h8v2H2zM2 10h10v2H2z"/>
+                            </svg>
+                            <span>Output</span>
+                        </div>
+                        <div class="output-actions">
+                            <button class="output-action" title="Clear output">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                                    <path d="M2 2l10 10M2 12L12 2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="outputContainer" class="output-content">
+                        <div class="output-line info">
+                            <span class="output-prefix">›</span>
+                            <span>Waiting for execution...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Chargement des exercices...</p>
+    </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
