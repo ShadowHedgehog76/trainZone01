@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Database - 01-edu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page de liste -->
+    <div id="listPage" class="page">
+        <header>
+            <h1>🎓 Exercise Database - 01-edu</h1>
+            <p class="subtitle">792 exercices de programmation complets</p>
+        </header>
+
+        <div class="container">
+            <!-- Barre de recherche -->
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un exercice..." class="search-bar">
+            </div>
+
+            <!-- Filtres de langages -->
+            <div class="filters-section">
+                <h3>Langages de programmation</h3>
+                <div class="pills-container" id="languagePills"></div>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="actions">
+                <button id="resetBtn" class="btn btn-reset">🔄 Réinitialiser</button>
+                <button id="randomBtn" class="btn btn-random">🎲 Exercice Aléatoire</button>
+            </div>
+
+            <!-- Compteur de résultats -->
+            <div id="resultsCount" class="results-count"></div>
+
+            <!-- Grille d'exercices -->
+            <div id="exerciseGrid" class="exercise-grid"></div>
+        </div>
+    </div>
+
+    <!-- Page de détail avec IDE -->
+    <div id="detailPage" class="page" style="display: none;">
+        <div class="detail-layout">
+            <!-- Contenu de l'exercice -->
+            <div class="exercise-content">
+                <button id="backBtn" class="btn-back">← Retour</button>
+                <div id="exerciseDetail"></div>
+            </div>
+
+            <!-- IDE Panel (fixe à droite) -->
+            <div class="ide-panel">
+                <div class="ide-header">
+                    <span class="ide-title">💻 Code Editor</span>
+                    <select id="languageSelector" class="language-selector"></select>
+                </div>
+                <div class="editor-container">
+                    <textarea id="codeEditor" placeholder="// Écris ton code ici..."></textarea>
+                </div>
+                <div class="ide-controls">
+                    <button id="runBtn" class="btn-ide btn-run">▶ Exécuter</button>
+                    <button id="clearBtn" class="btn-ide btn-clear">🗑 Effacer</button>
+                    <label for="fileInput" class="btn-ide btn-upload">📁 Charger Fichier</label>
+                    <input type="file" id="fileInput" style="display: none;">
+                </div>
+                <div class="output-container" id="outputContainer">
+                    <div class="output-line">Prêt à exécuter...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification container -->
+    <div id="notificationContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
