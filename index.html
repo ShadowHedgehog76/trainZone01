@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
     
@@ -28,7 +28,7 @@
                         <div class="brand-icon">⚡</div>
                         <div class="brand-text">
                             <span class="brand-name">TrainZone</span>
-                            <span class="brand-tagline">by 01-edu</span>
+                            <span class="brand-tagline">by TruePalace</span>
                         </div>
                     </div>
                     
@@ -181,12 +181,20 @@
                         <div class="exercise-header">
                             <h2 class="section-title">Tous les Exercices</h2>
                             <div class="view-toggle">
-                                <button class="toggle-btn active" data-view="grid">
+                                <button class="toggle-btn active" data-view="bento">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <rect x="2" y="2" width="7" height="7" rx="1"/>
                                         <rect x="11" y="2" width="7" height="7" rx="1"/>
                                         <rect x="2" y="11" width="7" height="7" rx="1"/>
                                         <rect x="11" y="11" width="7" height="7" rx="1"/>
+                                    </svg>
+                                </button>
+                                <button class="toggle-btn" data-view="grid">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                        <rect x="2" y="3" width="6" height="6" rx="1"/>
+                                        <rect x="10" y="3" width="6" height="6" rx="1"/>
+                                        <rect x="2" y="11" width="6" height="6" rx="1"/>
+                                        <rect x="10" y="11" width="6" height="6" rx="1"/>
                                     </svg>
                                 </button>
                                 <button class="toggle-btn" data-view="list">
@@ -199,7 +207,11 @@
                             </div>
                         </div>
                         
-                        <div id="exerciseGrid" class="exercise-grid grid-view"></div>
+                        <!-- Bento UI Categories -->
+                        <div id="bentoGrid" class="bento-grid" style="display: grid;"></div>
+                        
+                        <!-- Standard Exercise Grid -->
+                        <div id="exerciseGrid" class="exercise-grid grid-view" style="display: none;"></div>
                         
                         <!-- Empty State -->
                         <div id="emptyState" class="empty-state" style="display: none;">

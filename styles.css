@@ -789,6 +789,192 @@ body {
     transform: scale(1.05);
 }
 
+/* BENTO UI GRID */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.bento-category {
+    position: relative;
+    background: linear-gradient(135deg, rgba(31, 31, 46, 0.8) 0%, rgba(22, 22, 34, 0.9) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    min-height: 200px;
+}
+
+.bento-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bento-category:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2);
+}
+
+.bento-category:hover::before {
+    opacity: 1;
+}
+
+.bento-category.expanded {
+    grid-column: 1 / -1;
+    min-height: auto;
+}
+
+.bento-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.bento-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.bento-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.bento-title h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bento-count {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.bento-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.bento-category.expanded .bento-arrow {
+    transform: rotate(180deg);
+}
+
+.bento-preview {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+}
+
+.bento-preview::-webkit-scrollbar {
+    height: 4px;
+}
+
+.bento-preview::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-sm);
+}
+
+.bento-tag {
+    padding: var(--space-1) var(--space-3);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    color: var(--color-gray-600);
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.bento-exercises {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+.bento-category.expanded .bento-exercises {
+    display: grid;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bento-exercise-card {
+    background: rgba(13, 13, 20, 0.6);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bento-exercise-card:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.bento-exercise-card .exercise-id {
+    font-size: 0.625rem;
+    margin-bottom: var(--space-2);
+}
+
+.bento-exercise-card h4 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-gray-800);
+    margin-bottom: var(--space-2);
+}
+
 /* EMPTY STATE */
 .empty-state {
     text-align: center;

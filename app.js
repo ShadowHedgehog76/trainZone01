@@ -8,8 +8,9 @@ const state = {
     allLanguages: [],
     selectedLanguages: new Set(),
     searchTerm: '',
-    currentView: 'grid',
-    currentExercise: null
+    currentView: 'bento',
+    currentExercise: null,
+    expandedCategory: null
 };
 
 // DOM ELEMENTS
@@ -18,6 +19,7 @@ const elements = {
     searchInput: null,
     languageFilters: null,
     exerciseGrid: null,
+    bentoGrid: null,
     emptyState: null,
     resultsNumber: null,
     selectedCount: null,
@@ -44,6 +46,7 @@ function cacheDOMElements() {
     elements.searchInput = document.getElementById('searchInput');
     elements.languageFilters = document.getElementById('languageFilters');
     elements.exerciseGrid = document.getElementById('exerciseGrid');
+    elements.bentoGrid = document.getElementById('bentoGrid');
     elements.emptyState = document.getElementById('emptyState');
     elements.resultsNumber = document.getElementById('resultsNumber');
     elements.selectedCount = document.getElementById('selectedCount');
@@ -161,12 +164,136 @@ function renderExercises() {
         elements.resultsNumber.textContent = filtered.length;
     }
     
-    // Show/hide empty state
-    if (filtered.length === 0) {
+    if (state.currentView === 'bento') {
+        renderBentoView(filtered);
+    } else {
+        renderGridView(filtered);
+    }
+}
+
+// RENDER BENTO VIEW
+function renderBentoView(exercises) {
+    elements.exerciseGrid.style.display = 'none';
+    elements.bentoGrid.style.display = 'grid';
+    elements.emptyState.style.display = 'none';
+    
+    if (exercises.length === 0) {
+        elements.bentoGrid.style.display = 'none';
+        elements.emptyState.style.display = 'block';
+        return;
+    }
+    
+    // Group by language
+    const categories = {};
+    const languageIcons = {
+        'JavaScript': '⚡',
+        'Python': '🐍',
+        'Go': '🚀',
+        'Rust': '🦀',
+        'C': '⚙️',
+        'Java': '☕',
+        'Bash': '🐚',
+        'HTML/CSS': '🎨',
+        'SQL': '🗄️'
+    };
+    
+    exercises.forEach(ex => {
+        if (ex.programming_languages && ex.programming_languages.length > 0) {
+            ex.programming_languages.forEach(lang => {
+                if (!categories[lang]) {
+                    categories[lang] = [];
+                }
+                categories[lang].push(ex);
+            });
+        } else {
+            if (!categories['Other']) categories['Other'] = [];
+            categories['Other'].push(ex);
+        }
+    });
+    
+    elements.bentoGrid.innerHTML = Object.entries(categories)
+        .sort((a, b) => b[1].length - a[1].length)
+        .map(([lang, exs]) => {
+            const icon = languageIcons[lang] || '📦';
+            const preview = exs.slice(0, 3).map(ex => ex.name).join(', ');
+            
+            return `
+                <div class="bento-category" data-category="${lang}">
+                    <div class="bento-header">
+                        <div class="bento-title">
+                            <span class="bento-icon">${icon}</span>
+                            <h3>${lang}</h3>
+                        </div>
+                        <div class="bento-count">
+                            <span>${exs.length}</span>
+                            <span>exercices</span>
+                        </div>
+                    </div>
+                    <div class="bento-preview">
+                        ${exs.slice(0, 5).map(ex => 
+                            `<span class="bento-tag">${ex.id}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="bento-arrow">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="bento-exercises">
+                        ${exs.map(ex => `
+                            <div class="bento-exercise-card" data-id="${ex.id}">
+                                <div class="exercise-id">${ex.id}</div>
+                                <h4>${ex.name}</h4>
+                                <div class="language-badges">
+                                    ${(ex.programming_languages || []).map(l => 
+                                        `<span class="language-badge">${l}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    
+    // Add click listeners
+    document.querySelectorAll('.bento-category').forEach(cat => {
+        const header = cat.querySelector('.bento-header, .bento-arrow');
+        header.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleCategory(cat);
+        });
+    });
+    
+    document.querySelectorAll('.bento-exercise-card').forEach(card => {
+        card.addEventListener('click', () => showExercise(card.dataset.id));
+    });
+}
+
+// TOGGLE CATEGORY
+function toggleCategory(categoryEl) {
+    const wasExpanded = categoryEl.classList.contains('expanded');
+    
+    // Close all categories
+    document.querySelectorAll('.bento-category').forEach(cat => {
+        cat.classList.remove('expanded');
+    });
+    
+    // Open this one if it wasn't expanded
+    if (!wasExpanded) {
+        categoryEl.classList.add('expanded');
+    }
+}
+
+// RENDER GRID VIEW
+function renderGridView(exercises) {
+    elements.bentoGrid.style.display = 'none';
+    elements.exerciseGrid.style.display = 'grid';
+    
+    if (exercises.length === 0) {
         elements.exerciseGrid.style.display = 'none';
         elements.emptyState.style.display = 'block';
     } else {
-        elements.exerciseGrid.style.display = 'grid';
         elements.emptyState.style.display = 'none';
     }
     
@@ -309,8 +436,16 @@ function setupEventListeners() {
             btn.classList.add('active');
             
             const view = btn.dataset.view;
-            elements.exerciseGrid.classList.remove('grid-view', 'list-view');
-            elements.exerciseGrid.classList.add(view + '-view');
+            state.currentView = view;
+            
+            if (view === 'bento') {
+                elements.exerciseGrid.classList.remove('grid-view', 'list-view');
+                renderExercises();
+            } else {
+                elements.exerciseGrid.classList.remove('grid-view', 'list-view');
+                elements.exerciseGrid.classList.add(view + '-view');
+                renderExercises();
+            }
         });
     });
     
